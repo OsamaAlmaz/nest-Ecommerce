@@ -14,7 +14,11 @@ import { redisStore } from 'cache-manager-redis-store';
 
 @Module({
   imports: [
-    CacheModule.register(),
+    CacheModule.register({
+      ttl:0,
+      max: 1000,
+      isGlobal: true, 
+    }),
     MongooseModule.forRoot("mongodb://localhost/store"),
     ConfigModule.forRoot(),
     ProductModule,

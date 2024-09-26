@@ -7,6 +7,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import 'dotenv/config'
+import { MailerModule } from 'src/mailer/mailer.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import 'dotenv/config'
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '3600s' },
     }),
+    MailerModule,
   ],
   providers: [
     AuthService,

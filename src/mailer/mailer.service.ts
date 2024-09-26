@@ -29,6 +29,7 @@ export class MailerService {
     }
     
     async sendEmail(dto: SendEmailDTO){
+        console.log("dto: ", dto )
         const {from, recipients, subject, html, text, placeholderReplacement} = dto;
         const transport = this.mailTransport()
         console.log("After Mailtransporter")
@@ -43,7 +44,7 @@ export class MailerService {
             html, 
         }
         try{
-            console.log("Before sendMail")
+            console.log("Before sendMail ", options)
             const result = await transport.sendMail(options)
             return result;
 

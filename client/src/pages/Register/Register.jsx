@@ -30,17 +30,15 @@ export default function Register(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+        // validate the input, email contains @ password should contain a letter + number + symbol.
         validatePassword(password);
 
-        // see if the email exists. 
+        
         
 
         body = {"email": email, "password": password}
 
-        // validate the input, email contains @ password should contain a letter + number + symbol.
-        
-        
+        // see if the email exists in the database 
         const response = makeRequest.post('/auth/register', body)
 
 
